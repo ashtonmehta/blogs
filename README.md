@@ -1,5 +1,7 @@
 # Blogs
 
+![VIEW PROJECT HERE!](https://anmehta26cs.github.io/blogs/)
+
 ## Description
 A simple blog website where users can create, edit, and delete posts. Users can also sign in with their Google account.
 
