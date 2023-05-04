@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { collection, addDoc } from 'firebase/firestore'
 import { db, auth } from '../firebase-config'
 
-const CreatePost = ({ isAuth }) => {
+const CreatePost = ({ isAuth } : { isAuth : boolean }) => {
     const [title, setTitle] = useState('')
     const [post, setPost] = useState('')
 
@@ -15,7 +14,7 @@ const CreatePost = ({ isAuth }) => {
         if (!isAuth) {
             navigate('/login')
         }
-    }, [])
+    }, [isAuth, navigate])
 
     const CreatePost = async () => {
         const docRef = collection(db, "posts")
@@ -68,10 +67,6 @@ const CreatePost = ({ isAuth }) => {
         </div>
     </div>
   );
-};
-
-CreatePost.propTypes = {
-    isAuth: PropTypes.bool.isRequired
 };
 
 export default CreatePost;

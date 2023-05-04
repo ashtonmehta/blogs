@@ -1,11 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
 
-const Navbar = ({ isAuth, setIsAuth }) => {
+const Navbar = ({ isAuth, setIsAuth } : {isAuth : boolean, setIsAuth : React.Dispatch<React.SetStateAction<boolean>>}) => {
+    
     const navigate = useNavigate()
 
     const logout = () => {
@@ -37,11 +36,6 @@ const Navbar = ({ isAuth, setIsAuth }) => {
             </div>
         </nav>
     )
-}
-
-Navbar.propTypes = {
-    isAuth: PropTypes.bool.isRequired,
-    setIsAuth: PropTypes.func.isRequired
 }
 
 export default Navbar

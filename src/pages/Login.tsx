@@ -1,16 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { auth, provider } from '../firebase-config'
 import { signInWithPopup } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 
-const Login = ({ setIsAuth }) => {
+const Login = ({ setIsAuth } : {setIsAuth : React.Dispatch<React.SetStateAction<boolean>>}) => {
 
     const navigate = useNavigate()
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
-            localStorage.setItem("isAuth", true)
+            localStorage.setItem("isAuth", "true")
             setIsAuth(true)
             navigate('/')
             console.log(result)
@@ -32,10 +30,6 @@ const Login = ({ setIsAuth }) => {
             </div>
         </div>
   )
-}
-
-Login.propTypes = {
-    setIsAuth: PropTypes.func.isRequired
 }
 
 export default Login

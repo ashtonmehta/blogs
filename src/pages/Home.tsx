@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import { collection, getDocs, deleteDoc, QueryDocumentSnapshot, doc } from 'firebase/firestore';
 import { auth, db } from '../firebase-config';
 
@@ -18,7 +17,7 @@ interface Post {
   timestamp: number;
 }
 
-const Home = ({isAuth}) => {
+const Home = ({isAuth} : {isAuth : boolean}) => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
@@ -77,10 +76,6 @@ const Home = ({isAuth}) => {
       ))}
     </div>
   )
-}
-
-Home.propTypes = {
-    isAuth: PropTypes.bool,
 }
 
 export default Home
