@@ -22,14 +22,14 @@ const Navbar = ({ isAuth, setIsAuth } : {isAuth : boolean, setIsAuth : React.Dis
     return (
         <nav className="bg-blue-500 p-6 shadow-md">
             <div className="flex justify-between items-center">
-                <Link to="/" className="text-white text-lg font-semibold hover:text-blue-200 transition duration-200">Home</Link>
+                <Link to="/blogs" className="text-white text-lg font-semibold hover:text-blue-200 transition duration-200">Home</Link>
                 <div className="flex space-x-4">
                     {!isAuth
                         ?
-                        <Link to="/login" className="text-white text-lg font-semibold hover:text-blue-200 transition duration-200">Login</Link>
+                        <Link to="/blogs/login" className="text-white text-lg font-semibold hover:text-blue-200 transition duration-200">Login</Link>
                         :
                         <>
-                            <Link to="/create-post" className="text-white text-lg font-semibold hover:text-blue-200 transition duration-200">Create Post</Link>
+                            <Link to="/blogs/create-post" className="text-white text-lg font-semibold hover:text-blue-200 transition duration-200">Create Post</Link>
                             <button onClick={logout} className="text-white text-lg font-semibold hover:text-blue-200 transition duration-200">Logout</button>
                         </>}
                 </div>
